@@ -4,6 +4,7 @@ body{
     border: black solid 1px;
     color: white;
     align-self: center;
+    height: 1200px;
 }
 header{
     background-color: black;
