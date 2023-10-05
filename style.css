@@ -12,7 +12,7 @@ header{
     height: 100px;
     font-size: 50px;
     display: flex;
-    align-content: center;
+    justify-content: center;
 }
 #headerunderline{
     background-color:rgb(246, 255, 0);
