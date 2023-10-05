@@ -15,15 +15,18 @@ header{
 #container{
     display: flex;
     flex-direction: column;
+    border: black solid 1px;
 }
 #left{
     width: 100px;
+    border-right: black solid 1px;
 }
 #content{
     width: 800px;
 }
 #right{
     width: 100px;
+    border-left: black solid 1px;
 }
 footer{
     height: 100px;
