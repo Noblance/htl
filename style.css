@@ -1,6 +1,7 @@
 body{
     width: 1000px;
     margin: auto;
+    border: black solid 1px;
 }
 header{
     color: black;
@@ -10,4 +11,17 @@ header{
 #headerunderline{
     color:rgb(246, 255, 0);
     height: 10px;
+}
+#container{
+    display: flex;
+    flex-direction: column;
+}
+#left{
+    width: 100px;
+}
+#content{
+    width: 800px;
+}
+#right{
+    width: 100px;
 }
