@@ -21,13 +21,16 @@ header{
 #left{
     width: 100px;
     border-right: black solid 1px;
+    padding-left: 10px;
 }
 #content{
     width: 800px;
+    padding-left: 10px;
 }
 #right{
     width: 100px;
     border-left: black solid 1px;
+    padding-left: 10px;
 }
 footer{
     height: 100px;
