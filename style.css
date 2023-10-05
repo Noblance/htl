@@ -1,0 +1,13 @@
+body{
+    width: 1000px;
+    margin: auto;
+}
+header{
+    color: black;
+    height: 100px;
+    font-size: 50px;
+}
+#headerunderline{
+    color:rgb(246, 255, 0);
+    height: 10px;
+}
