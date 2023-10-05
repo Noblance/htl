@@ -33,12 +33,16 @@ header{
 #content{
     width: 600px;
     padding-left: 10px;
+    display: flex;
+    justify-self: center;
 }
 #right{
     width: 200px;
     border-left: black solid 1px;
     padding-left: 10px;
     height: 900px;
+    display: flex;
+    justify-self: flex-end;
 }
 footer{
     height: 100px;
