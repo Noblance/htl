@@ -5,7 +5,7 @@ body{
     border: black solid 1px;
     color: white;
     
-    height: 1100px;
+    height: 1110px;
 }
 header{
     background-color: black;
@@ -23,6 +23,7 @@ header{
     flex-direction: row;
     border: black solid 1px;
     height: 900px;
+    margin-bottom: 0;
 }
 #left{
     width: 200px;
@@ -30,6 +31,8 @@ header{
     padding-left: 10px;
     padding-right: 10px;
     height: 900px;
+    color: black; 
+    flex-direction: column;
 }
 #content{
     width: 600px;
@@ -48,6 +51,9 @@ header{
     height: 900px;
     display: flex;
     justify-self: flex-end;
+    justify-content: flex-start;
+    color: black; 
+    flex-direction: column;
 }
 footer{
     height: 100px;
