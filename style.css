@@ -28,11 +28,13 @@ header{
     width: 200px;
     border-right: black solid 1px;
     padding-left: 10px;
+    padding-right: 10px;
     height: 900px;
 }
 #content{
     width: 600px;
     padding-left: 10px;
+    padding-right: 10px;
     display: flex;
     justify-self: center;
     color: black; 
@@ -42,6 +44,7 @@ header{
     width: 200px;
     border-left: black solid 1px;
     padding-left: 10px;
+    padding-right: 10px;
     height: 900px;
     display: flex;
     justify-self: flex-end;
