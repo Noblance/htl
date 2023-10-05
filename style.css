@@ -34,7 +34,7 @@ header{
     color: black; 
     flex-direction: column;
 }
-#topics{
+.topics{
     padding-left: 20px;
     display: flex;
     flex-direction: column;
