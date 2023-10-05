@@ -34,6 +34,11 @@ header{
     color: black; 
     flex-direction: column;
 }
+#topics{
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+}
 #content{
     width: 600px;
     padding-left: 10px;
