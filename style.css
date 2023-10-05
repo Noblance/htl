@@ -16,6 +16,7 @@ header{
     display: flex;
     flex-direction: column;
     border: black solid 1px;
+    height: 900px;
 }
 #left{
     width: 100px;
