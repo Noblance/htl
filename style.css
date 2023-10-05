@@ -2,6 +2,8 @@ body{
     width: 1000px;
     margin: auto;
     border: black solid 1px;
+    color: white;
+    align-self: center;
 }
 header{
     background-color: black;
@@ -19,16 +21,16 @@ header{
     height: 900px;
 }
 #left{
-    width: 100px;
+    width: 200px;
     border-right: black solid 1px;
     padding-left: 10px;
 }
 #content{
-    width: 800px;
+    width: 600px;
     padding-left: 10px;
 }
 #right{
-    width: 100px;
+    width: 200px;
     border-left: black solid 1px;
     padding-left: 10px;
 }
