@@ -35,6 +35,7 @@ header{
     padding-left: 10px;
     display: flex;
     justify-self: center;
+    color: black; 
 }
 #right{
     width: 200px;
