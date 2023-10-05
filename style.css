@@ -43,6 +43,15 @@ header{
     color: black; 
     flex-direction: column;
 }
+#contentb{
+    width: 800px;
+    padding-left: 10px;
+    padding-right: 10px;
+    display: flex;
+    justify-self: center;
+    color: black; 
+    flex-direction: column;
+}
 #right{
     width: 200px;
     border-left: black solid 1px;
