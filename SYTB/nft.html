@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"/>
+    <title>SYTB</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <header style="background-color: black; color: white;"><a class="spa" href="../index.html">HTL Krems Wiki</a></header>
+    <div id="headerunderline"></div>
+    <div id="container">
+        <div id="left" class="navs">
+            <h1 class="navs">Topics</h1>
+            <div class="topics">
+                <a class="navs" href="../SYTB/indexsytb.html"> &#09; SYTB</a>
+                <a class="navs" href="../SEW/indexsew.html"> &#09; SEW</a>
+                <a class="navs" href="../SYTE/indexsyte.html"> &#09; SYTE</a> 
+        </div>
+           
+        </div>
+        <div id="content">
+            <h1>NFTables</h1>
+            <p>NFTables ist ein Firewall-Programm, das bedeutet es hat die Funktion bestimte Port, Pakete, etc. zu filtern oder umzuleiten. Die Umleitfunktion
+                ermöglicht es außerdem aus einer Linux-Maschine einen Router zu machen.
+                <br>
+                <br>
+                NFTables hat einen bestimmten Aufbau:
+                <h4>Table:</h4> Die Tabelle selber; sie kann unterschiedliche Familien ansprechen (ip,ip6,inet,arp,bridge,netdev)
+                <h4>Chain:</h4> Die Kette ist eine Unterkategorie von der Tabelle; sie kann unterschiedliche Bearbeitungspunkte angeben (input, ouotput, forward,...), diese sind jedoch von der Familie abhängig
+                <h4>Rule:</h4> Die Regel definiert dann wirklich was erlaubt oder nicht erlaubt ist 
+
+                <h2>Beispiel</h2>
+                <h4>Alle Ports sperren aber nur einen durchlassen</h4>
+                <code class="code">
+                    #nft add table ip filter <br>
+                    #nft add chain ip filter output { type filter hook output priority 100\; policy drop\;}<br>
+                    #nft add rule ip filter output tcp dport 53 counter accept<br>
+                    #nft add rule ip filter output udp dport 53 counter accept<br>
+                </code>
+                Danach einen restart des Services NFTables machen: <span class="code">#service nftables restart</span>
+                <br>
+                <br>
+                In diesem Fall wird jedes Paket dass mit dem Protokoll TCP, UDP an den Port 53 (DNS) ankommt durchgelassen und mit counter auch gleich mitgezählt. Alle anderen Pakete werden nicht durchgelassen.
+                <br> 
+                Man kann die Anzahl an Paketen sowie die ganze Tabelle mit <span class="code">#nft list ruleset</span> sehen.
+                <br><br>
+                Um eine alle Tabellen zu löschen: <span class="code">#nft flush ruleset</span>
+
+                <h4>Masqueraden</h4>
+                Die obengenante Routing-Funktion einbauen. In diesem Beispiel wird folgendes benötigt/benutzt
+                <ul>
+                    <li>3 PC/Maschinen</li>
+                    <li>Wissen über  <a href="ipconf.html">Netzwerk- bzw. Schnitstellenkonfiguration</a></li>
+                    <li>2 Interne Netze und 1 NAT Zugriff</li>
+                </ul>
+                Vor dem Prozess am Router ist es wichitg die Netzwerkkonfiguration so einzustellen:
+                <ul>
+                    <li>Router/PC 1: 2 Schnittstellen mit jeweils einer Maschine</li>
+                    <li>PC 2: Schnitstelle zum Router; Gateway einstellen</li>
+                    <li>PC 3: Schnitstelle zum Router; Gateway einstellen</li>
+                </ul>
+                Wichitg ist es, das die zwei "Clients" in unterschiedlichen Netzwerken liegen.
+                <code class="code">
+                    Am "Router"/PC 1 <br><br>
+                    #echo 1 > /prov/sys/net/ipv4/ip_forwarding --> IP-Forwarding aktivieren <br>
+                    #nft add table nat <br>
+                    #nft add chain nat postrouting { type nat hook postrouting priority 100\;}<br>
+                    #nft add rule nat postrouting ip saddr 192.168.1.0/24 oif enp0s3 masquerade<br>
+                    #nft add rule nat postrouting ip saddr 192.168.2.0/24 oif enp0s3 masquerade<br>
+                </code>
+                Danach einen restart des Services NFTables machen: <span class="code">#service nftables restart</span>
+                <br>
+                <br>
+                In diesem Fall wird jedes Paket dass mit den beiden Netzwerkadressen kommt an die Netzwerkschnitstelle des NATs weitergeleitet <br>
+                <br> 
+                Man kann die Anzahl an Paketen sowie die ganze Tabelle mit <span class="code">#nft list ruleset</span> sehen.
+                <br><br>
+                Alle Konfigurationen werden von NFTables (reine nft-commands) nicht gespeichert wenn man hherunterfährt, da kann es helfen ein <a href="bashscrip.html">Bash Script</a> zu erstellen
+            </p>
+        </div>
+        
+        
+    </div>
+    <footer>
+        <br>
+        <p>&copy; Noblance</p>
+        <p>For good reasons to HTL Krems</p>
+    </footer>
+</body>
+</html>

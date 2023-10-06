@@ -1,3 +1,6 @@
+a{
+    color:black;
+}
 body{
     
     width: 1000px;
@@ -5,7 +8,7 @@ body{
     border: black solid 1px;
     color: white;
     
-    height: 1110px;
+    min-height: 1110px;
 }
 header{
     background-color: black;
@@ -22,7 +25,7 @@ header{
     display: flex;
     flex-direction: row;
     border: black solid 1px;
-    height: 900px;
+    min-height: 900px;
     margin-bottom: 0;
 }
 #left{
@@ -30,7 +33,7 @@ header{
     border-right: black solid 1px;
     padding-left: 10px;
     padding-right: 10px;
-    height: 900px;
+    min-height: 900px;
     color: black; 
     flex-direction: column;
 }
@@ -62,7 +65,7 @@ header{
     border-left: black solid 1px;
     padding-left: 10px;
     padding-right: 10px;
-    height: 900px;
+    min-height: 900px;
     display: flex;
     justify-self: flex-end;
     justify-content: flex-start;
@@ -81,4 +84,12 @@ footer{
 .spa{
     text-decoration: none;
     color: white;
+}
+.code{
+    background-color: rgb(171, 171, 171);
+    border-radius: 10px;
+    line-height: 23px;
+}
+.bold{
+    font-weight: bold;
 }
