@@ -14,28 +14,34 @@
             <h1 class="navs">Topics</h1>
             <div class="topics">
                 <a class="navs" href="../SYTB/indexsytb.html"> &#09; SYTB</a>
-                <a class="navs" href="../SEW/indexsew.html"> &#09; SEW</a>
                 <a class="navs" href="../SYTE/indexsyte.html"> &#09; SYTE</a> 
         </div>
            
         </div>
         <div id="content">
             <h1>Basic Networkkonfiguration</h1>
-            <ul>
-                <li><span class="bold">pwd</span> Gibt das aktuelle Verzeichnis aus</li>
-                <li><span class="bold">cd \directory:</span>  Wechselt das Arbeits-verzeichnis; Der Pfad kann absolut oder relativ sein </li>
-                <li><span class="bold">cat \directory:</span> Gibt die Datei aus; Der Pfad kann absolut oder relativ sein </li>
-                <li><span class="bold">nano \directory:</span>Standard Debian 12 editor; Der Pfad kann absolut oder relativ sein </li>
-                <li><span class="bold">cp \directory \directory:</span>Kopiert oder Bennent Dateien um; Der Pfad kann absolut oder relativ sein </li>
-                <li><span class="bold">grep "text" \directory:</span>Holt/Sucht ein Muster aus einer Datei; Der Pfad kann absolut oder relativ sein </li>
-                <li><span class="bold">touch \directory:</span>Erstellt Datein; Der Pfad kann absolut oder relativ sein </li>
-                <li><span class="bold">mkdir \directory:</span>Erstellt einen Ordner/ein Verzeichnis; Der Pfad kann absolut oder relativ sein </li>
-                <li><span class="bold">rm \directory:</span>Löscht grundstätzlich Dateien kann aber mit Operatoren (-rf) auch Ordner löschen; Der Pfad kann absolut oder relativ sein </li>
-                <li><span class="bold">rmdir \directory:</span>Löscht einen Ordner; Der Pfad kann absolut oder relativ sein </li>
-                <li><span class="bold">journalctl -f: </span>Zeigt aktuelle Ereignisse, läuft auch nebenbei</li>
-                <li><span class="bold">man command: </span>Liefert Aufbau,Operatoren sowie Informationen über einen Command </li>
-                <li><span class="bold"> | :</span>Mit den Pipe operator lassen sich Commands miteinander verknüpfen; Der Output des davorstehendes wird dem danachstehenden übergeben </li>
-            </ul>    
+            
+                
+                   <p> In der Virtualisierungsumgebung (Virtual Box) können unter Maschinename > "Ändern" > "Netzwerkadapter" vier Schnitstellen festgelegt werden.
+                </p>
+                <p>
+                    Unter <span class="code">/etc/network/interfaces</span> können die Schnittstellen konfiguriert werden
+                </p>
+                <p>
+                    Bei einem static Interface:</p>
+                    <code class="code">
+                        auto enp0s3 --> enp0s3 = Die Schnitstelle <br>
+                        iface enp0s3 inet static <br>
+                            <span style="margin-left: 30px;"></span> address 192.168.1.1 --> IP-Addresse <br>
+                            <span style="margin-left: 30px;"></span> netmask 255.255.255.0 --> Festlegung des Netzanteils (Subnetzmaske), kann auch mit Prefix bei Adresse gemacht werden <br>
+                            <span style="margin-left: 30px;"></span>(gateway 192.168.1.250) --> Bei einer Verbindung mit einem Router, muss/sollte man ein Gateway definieren mit der Adresse zum Router <br>
+
+                    </code>
+                <p>Zum Schluss muss noch der Network-Service gerestarted werden: <span class="code">#service networking restart</span></p>
+
+                
+                
+            
         </div>
         
         
