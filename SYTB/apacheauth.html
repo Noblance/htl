@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <title>Apache</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="shortcut icon" href="../favicon.jpg" type="image/x-icon">
+</head>
+<body>
+    <header style="background-color: black; color: white;"><a class="spa" href="../index.html">HTL Wiki</a></header>
+    <div id="headerunderline"></div>
+    <div id="container">
+        <div id="left" class="navs">
+            <h1 class="navs">Topics</h1>
+            <div class="topics">
+                <a class="navs" href="../SYTB/indexsytb.html"> &#09; SYTB</a>
+                <a class="navs" href="../SYTE/indexsyte.html"> &#09; SYTE</a> 
+        </div>
+           
+        </div>
+        <div id="content">
+            <h1>Apache Installation</h1>
+            <p>Apache ist ein Dienst der eine Webseite auf deinem Computer erstellt.</p>
+            <code class="code">
+                #apt install apache2
+                #apt install apache2-utils 
+            </code>
+            <h1>Apache Verschlüsselung</h1>
+            <p>Man kann in den Linux-Apache Konfigurationen auch die Webseite mit einer Authenfizierung austatten, sprich man braucht einen Benutzer und ein Passwort um auf die Webseite zuzugreifen. <br> Dazu müssen wir zuerst einen Nutzer erstellen:</p>
+            <code class="code">
+                #htpasswd -c /etc/apache2/.htpasswd user124
+            </code>
+            <p>Danach wird man um ein Passwort gebeten. <br><br> Man kann in der htpasswd-Datei auch die aktuellen User nachlesen. <br> Nun muss man Apache noch auf eine Konfiguration hinweisen, das passiert in der <span class="code">/etc/apache2/sites-enabled/000-default.conf</span>:</p>
+            <code class="code">
+                    In der "VirtualHost"-Klammer folgendes eintragen: <br>
+                    &lt;Directory "/var/www/html"&gt; <br>
+                        <span style="margin-left: 30px;">AuthType Basic</span> <br>
+                        <span style="margin-left: 30px;">AuthName "Restricted Content"</span> <br>
+                        <span style="margin-left: 30px;">AuthUserFile /etc/apache2/.htpasswd</span> <br>
+                        <span style="margin-left: 30px;">Require valid-user</span> <br>
+                    &lt;Directory&gt;
+            </code>
+        </div>
+        
+        
+    </div>
+    <footer>
+        <br>
+        <p>&copy; Noblance</p>
+        <p>For good reasons to HTL Krems</p>
+    </footer>
+</body>
+</html>
